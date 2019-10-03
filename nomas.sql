@@ -1,0 +1,2002 @@
+--------------------------------------------------------
+-- Archivo creado  - lunes-septiembre-30-2019   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table BOLETA
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."BOLETA" 
+   (	"IDBOLETA" NUMBER, 
+	"FECPAGO" DATE, 
+	"FECLIMITE" DATE, 
+	"MONTO" NUMBER, 
+	"ESTADOBOLETA" NUMBER, 
+	"IDPLAN" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table CAPACITACION
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."CAPACITACION" 
+   (	"IDCAPACITACION" NUMBER, 
+	"FECHA" DATE, 
+	"DESCRIPCION" VARCHAR2(200 BYTE), 
+	"CANTASISTENTES" NUMBER, 
+	"IDPLAN" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table CHECKLIST
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."CHECKLIST" 
+   (	"IDCHECK" NUMBER, 
+	"DESCRIPCION" VARCHAR2(30 BYTE), 
+	"IDPLAN" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table CHECKLISTREPORTE
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."CHECKLISTREPORTE" 
+   (	"IDCHECKREPORTE" NUMBER, 
+	"ESTADOCHECK" NUMBER, 
+	"FECHA" DATE, 
+	"MEJORA" VARCHAR2(150 BYTE), 
+	"IDCHECKLIST" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table CIUDAD
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."CIUDAD" 
+   (	"IDCIUDAD" NUMBER, 
+	"DESCRIPCION" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table CLIENTE
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."CLIENTE" 
+   (	"IDCLIENTE" NUMBER, 
+	"RUT" VARCHAR2(11 BYTE), 
+	"NOMBRE" VARCHAR2(30 BYTE), 
+	"APEPATERNO" VARCHAR2(30 BYTE), 
+	"APEMATERNO" VARCHAR2(30 BYTE), 
+	"DIRECCION" VARCHAR2(50 BYTE), 
+	"EMAIL" VARCHAR2(100 BYTE), 
+	"TELEFONO" VARCHAR2(12 BYTE), 
+	"IDCOMUNA" NUMBER, 
+	"IDRUBRO" NUMBER, 
+	"IDUSUARIO" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table COMUNA
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."COMUNA" 
+   (	"IDCOMUNA" NUMBER, 
+	"DESCRIPCION" VARCHAR2(30 BYTE), 
+	"IDCIUDAD" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table DETALLEBOLETA
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."DETALLEBOLETA" 
+   (	"IDDETALLEBOLETA" NUMBER, 
+	"PRECIO" NUMBER, 
+	"IDBOLETA" NUMBER, 
+	"IDSERVICIO" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table EVENTO
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."EVENTO" 
+   (	"IDEVENTO" NUMBER, 
+	"ASESORIA" VARCHAR2(255 BYTE), 
+	"FECHA" DATE, 
+	"IDTIPOEVENTO" NUMBER, 
+	"IDPLAN" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table MODIFICACIONCHECK
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."MODIFICACIONCHECK" 
+   (	"IDMODIFICACION" NUMBER, 
+	"FECHA" DATE, 
+	"IDCHECK" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table PLANCONTRATADO
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."PLANCONTRATADO" 
+   (	"IDPLAN" NUMBER, 
+	"FECPLAN" DATE, 
+	"PRECIO" NUMBER, 
+	"SUCURSAL" VARCHAR2(100 BYTE), 
+	"ESTADO" NUMBER, 
+	"IDCLIENTE" NUMBER, 
+	"IDPROFESIONAL" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table PROFESIONAL
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."PROFESIONAL" 
+   (	"IDPROFESIONAL" NUMBER, 
+	"RUT" VARCHAR2(11 BYTE), 
+	"NOMBRE" VARCHAR2(30 BYTE), 
+	"APEPATERNO" VARCHAR2(30 BYTE), 
+	"APEMATERNO" VARCHAR2(30 BYTE), 
+	"TELEFONO" VARCHAR2(12 BYTE), 
+	"FECNACIMIENTO" DATE, 
+	"IDCOMUNA" NUMBER, 
+	"IDUSUARIO" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table REPORTE
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."REPORTE" 
+   (	"IDREPORTE" NUMBER, 
+	"VISITAS" NUMBER, 
+	"CAPACITACION" NUMBER, 
+	"ACCIDENTES" NUMBER, 
+	"MULTAS" NUMBER, 
+	"IDUSUADMIN" NUMBER, 
+	"IDCLIENTE" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table RUBRO
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."RUBRO" 
+   (	"IDRUBRO" NUMBER, 
+	"DESCRIPCION" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table SERVICIO
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."SERVICIO" 
+   (	"IDSERVICIO" NUMBER, 
+	"DESCRIPCION" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table TIPOEVENTO
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."TIPOEVENTO" 
+   (	"IDTIPOEVENTO" NUMBER, 
+	"DESCRIPCION" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table TIPOUSUARIO
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."TIPOUSUARIO" 
+   (	"IDTIPOUSUARIO" NUMBER, 
+	"DESCRIPCION" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table UBICACION
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."UBICACION" 
+   (	"IDUBICACION" NUMBER, 
+	"DIRECCION" VARCHAR2(50 BYTE), 
+	"FECHA" DATE,
+  "IDPROFESIONAL" NUMBER,
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table USUARIO
+--------------------------------------------------------
+
+  CREATE TABLE "nomasacc"."USUARIO" 
+   (	"IDUSUARIO" NUMBER, 
+	"USU" VARCHAR2(30 BYTE), 
+	"PASS" VARCHAR2(255 BYTE), 
+	"ESTADOUSUARIO" NUMBER, 
+	"IDTIPOUSUARIO" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into nomasacc.BOLETA
+SET DEFINE OFF;
+REM INSERTING into nomasacc.CAPACITACION
+SET DEFINE OFF;
+REM INSERTING into nomasacc.CHECKLIST
+SET DEFINE OFF;
+REM INSERTING into nomasacc.CHECKLISTREPORTE
+SET DEFINE OFF;
+REM INSERTING into nomasacc.CIUDAD
+SET DEFINE OFF;
+REM INSERTING into nomasacc.CLIENTE
+SET DEFINE OFF;
+REM INSERTING into nomasacc.COMUNA
+SET DEFINE OFF;
+REM INSERTING into nomasacc.DETALLEBOLETA
+SET DEFINE OFF;
+REM INSERTING into nomasacc.EVENTO
+SET DEFINE OFF;
+REM INSERTING into nomasacc.MODIFICACIONCHECK
+SET DEFINE OFF;
+REM INSERTING into nomasacc.PLANCONTRATADO
+SET DEFINE OFF;
+REM INSERTING into nomasacc.PROFESIONAL
+SET DEFINE OFF;
+REM INSERTING into nomasacc.REPORTE
+SET DEFINE OFF;
+REM INSERTING into nomasacc.RUBRO
+SET DEFINE OFF;
+REM INSERTING into nomasacc.SERVICIO
+SET DEFINE OFF;
+REM INSERTING into nomasacc.TIPOEVENTO
+SET DEFINE OFF;
+REM INSERTING into nomasacc.TIPOUSUARIO
+SET DEFINE OFF;
+REM INSERTING into nomasacc.UBICACION
+SET DEFINE OFF;
+REM INSERTING into nomasacc.USUARIO
+SET DEFINE OFF;
+--------------------------------------------------------
+--  DDL for Index BOLETA_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."BOLETA_PK" ON "nomasacc"."BOLETA" ("IDBOLETA") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index CHECK_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."CHECK_PK" ON "nomasacc"."CHECKLIST" ("IDCHECK") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index CHECK_REPORTE_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."CHECK_REPORTE_PK" ON "nomasacc"."CHECKLISTREPORTE" ("IDCHECKREPORTE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index CIUDAD_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."CIUDAD_PK" ON "nomasacc"."CIUDAD" ("IDCIUDAD") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index CLIENTE_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."CLIENTE_PK" ON "nomasacc"."CLIENTE" ("IDCLIENTE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index COMUNA_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."COMUNA_PK" ON "nomasacc"."COMUNA" ("IDCOMUNA") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index EVENTO_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."EVENTO_PK" ON "nomasacc"."EVENTO" ("IDEVENTO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index IDDETALLEBOLETA
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."IDDETALLEBOLETA" ON "nomasacc"."DETALLEBOLETA" ("IDDETALLEBOLETA") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index MODCHECK_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."MODCHECK_PK" ON "nomasacc"."MODIFICACIONCHECK" ("IDMODIFICACION") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index PLAN_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."PLAN_PK" ON "nomasacc"."PLANCONTRATADO" ("IDPLAN") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index PROFESIONAL_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."PROFESIONAL_PK" ON "nomasacc"."PROFESIONAL" ("IDPROFESIONAL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index REPORTE_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."REPORTE_PK" ON "nomasacc"."REPORTE" ("IDREPORTE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index RUBRO_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."RUBRO_PK" ON "nomasacc"."RUBRO" ("IDRUBRO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index SERVICIO_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."SERVICIO_PK" ON "nomasacc"."SERVICIO" ("IDSERVICIO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index TIPO_EVENTO_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."TIPO_EVENTO_PK" ON "nomasacc"."TIPOEVENTO" ("IDTIPOEVENTO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index TIPO_USUARIO_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."TIPO_USUARIO_PK" ON "nomasacc"."TIPOUSUARIO" ("IDTIPOUSUARIO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index UBICACION_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."UBICACION_PK" ON "nomasacc"."UBICACION" ("IDUBICACION") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index USUARIO_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."USUARIO_PK" ON "nomasacc"."USUARIO" ("IDUSUARIO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index CAPACITACION_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "nomasacc"."CAPACITACION_PK" ON "nomasacc"."CAPACITACION" ("IDCAPACITACION") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Package PKG_BOLETA
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_BOLETA" 
+IS
+PROCEDURE INSERTAR_BOLETA(idBoleta_c NUMBER,fecPago_c DATE,fecLimite_c DATE,monto_c NUMBER,estadoBoleta_c NUMBER,idPlan_c NUMBER);
+PROCEDURE MODIFICAR_BOLETA(idBoleta_c NUMBER,fecPago_c DATE,fecLimite_c DATE,monto_c NUMBER,estadoBoleta_c NUMBER,idPlan_c NUMBER);
+PROCEDURE ELIMINAR_BOLETA(idBoleta_c NUMBER);
+END PKG_BOLETA;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_CAPACITACION
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_CAPACITACION" 
+IS
+PROCEDURE INSERTAR_CAPACITACION(idCapacitacion_c NUMBER,fecha_c DATE,descripcion_c VARCHAR2,cantAsistentes_c NUMBER,idPlan_c NUMBER);
+PROCEDURE MODIFICAR_CAPACITACION(idCapacitacion_c NUMBER,fecha_c DATE,descripcion_c VARCHAR2,cantAsistentes_c NUMBER,idPlan_c NUMBER);
+PROCEDURE ELIMINAR_CAPACITACION(idCapacitacion_c NUMBER);
+END PKG_CAPACITACION;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_CHECKLIST
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_CHECKLIST" 
+IS
+PROCEDURE INSERTAR_CHECKLIST(idCheck_c NUMBER,descripcion_c VARCHAR2,idPlan_c NUMBER);
+PROCEDURE MODIFICAR_CHECKLIST(idCheck_c NUMBER,descripcion_c VARCHAR2,idPlan_c NUMBER);
+PROCEDURE ELIMINAR_CHECKLIST(idCheck_c NUMBER);
+END PKG_CHECKLIST;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_CHECKLISTREPORTE
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_CHECKLISTREPORTE" 
+IS
+PROCEDURE INSERTAR_CHECKLISTREPORTE(idCheckReporte_c NUMBER,estadoCheck_c NUMBER,fecha_c DATE,mejora_c VARCHAR2,idCheckList_c NUMBER);
+PROCEDURE MODIFICAR_CHECKLISTREPORTE(idCheckReporte_c NUMBER,estadoCheck_c NUMBER,fecha_c DATE,mejora_c VARCHAR2,idCheckList_c NUMBER);
+PROCEDURE ELIMINAR_CHECKLISTREPORTE(idCheckReporte_c NUMBER);
+END PKG_CHECKLISTREPORTE;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_CIUDAD
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_CIUDAD" 
+IS
+PROCEDURE INSERTAR_CIUDAD(idCiudad_c NUMBER,descripcion_c VARCHAR); 
+PROCEDURE MODIFICAR_CIUDAD(idCiudad_c NUMBER,descripcion_c VARCHAR);
+PROCEDURE ELIMINAR_CIUDAD(idCiudad_c NUMBER);
+END PKG_CIUDAD;
+--cuerpo--
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_CLIENTE
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_CLIENTE" 
+IS
+PROCEDURE INSERTAR_CLIENTE(idCliente_c NUMBER,rut_c VARCHAR2,nombre_c VARCHAR2,apePaterno_c VARCHAR2,apeMaterno_c VARCHAR2,direccion_c VARCHAR2,email_c VARCHAR2,telefono_c VARCHAR2,idComuna_c NUMBER,idRubro_c NUMBER,idUsuario_c NUMBER);
+PROCEDURE MODIFICAR_CLIENTE(idCliente_c NUMBER,rut_c VARCHAR2,nombre_c VARCHAR2,apePaterno_c VARCHAR2,apeMaterno_c VARCHAR2,direccion_c VARCHAR2,email_c VARCHAR2,telefono_c VARCHAR2,idComuna_c NUMBER,idRubro_c NUMBER,idUsuario_c NUMBER);
+PROCEDURE ELIMINAR_CLIENTE(idCliente_c NUMBER);
+END PKG_CLIENTE;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_COMUNA
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_COMUNA" 
+IS
+PROCEDURE INSERTAR_COMUNA(idComuna_c NUMBER,descripcion_c VARCHAR2,idCiudad_c NUMBER);
+PROCEDURE MODIFICAR_COMUNA(idComuna_c NUMBER,descripcion_c VARCHAR2,idCiudad_c NUMBER);
+PROCEDURE ELIMINAR_COMUNA(idComuna_c NUMBER);
+END PKG_COMUNA ;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_DETALLEBOLETA
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_DETALLEBOLETA" 
+IS
+PROCEDURE INSERTAR_DETALLEBOLETA(idDetalleBoleta_c NUMBER,precio_c NUMBER,idBoleta_c NUMBER,idServicio_c NUMBER);
+PROCEDURE MODIFICAR_DETALLEBOLETA(idDetalleBoleta_c NUMBER,precio_c NUMBER,idBoleta_c NUMBER,idServicio_c NUMBER);
+PROCEDURE ELIMINAR_DETALLEBOLETA(idDetalleBoleta_c NUMBER);
+END PKG_DETALLEBOLETA;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_EVENTO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_EVENTO" 
+IS
+PROCEDURE INSERTAR_EVENTO(idEvento_c NUMBER,asesoria_c VARCHAR2,fecha_c DATE,idTipoEvento_c NUMBER,idPlan_c NUMBER);
+PROCEDURE MODIFICAR_EVENTO(idEvento_c NUMBER,asesoria_c VARCHAR2,fecha_c DATE,idTipoEvento_c NUMBER,idPlan_c NUMBER);
+PROCEDURE ELIMINAR_EVENTO(idEvento_c NUMBER);
+END PKG_EVENTO;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_MODIFICACIONCHECK
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_MODIFICACIONCHECK" 
+IS
+PROCEDURE INSERTAR_MODIFICACIONCHECK(idModificacion_c NUMBER,fecha_c DATE,idCheck_c NUMBER);
+PROCEDURE MODIFICAR_MODIFICACIONCHECK(idModificacion_c NUMBER,fecha_c DATE,idCheck_c NUMBER);
+PROCEDURE ELIMINAR_MODIFICACIONCHECK(idModificacion_c NUMBER);
+END PKG_MODIFICACIONCHECK;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_PLANCONTRATADO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_PLANCONTRATADO" 
+IS
+PROCEDURE INSERTAR_PLANCONTRATADO(idPlan_c NUMBER,fecPlan_c DATE,precio_c NUMBER,sucursal_c VARCHAR2,estado_c NUMBER,idCliente_c NUMBER,idProfesional_c NUMBER);
+PROCEDURE MODIFICAR_PLANCONTRATADO(idPlan_c NUMBER,fecPlan_c DATE,precio_c NUMBER,sucursal_c VARCHAR2,estado_c NUMBER,idCliente_c NUMBER,idProfesional_c NUMBER);
+PROCEDURE ELIMINAR_PLANCONTRATADO(idPlan_c NUMBER);
+END PKG_PLANCONTRATADO;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_PROFESIONAL
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_PROFESIONAL" 
+IS
+PROCEDURE INSERTAR_PROFESIONAL(idProfesional_c NUMBER,rut_c VARCHAR2,nombre_c VARCHAR2,apePaterno_c VARCHAR2,apeMaterno_c VARCHAR2,telefono_c VARCHAR2,fecNacimiento_c DATE,idComuna_c NUMBER,idUbicacion_c NUMBER,idUsuario_c NUMBER);
+PROCEDURE MODIFICAR_PROFESIONAL(idProfesional_c NUMBER,rut_c VARCHAR2,nombre_c VARCHAR2,apePaterno_c VARCHAR2,apeMaterno_c VARCHAR2,telefono_c VARCHAR2,fecNacimiento_c DATE,idComuna_c NUMBER,idUbicacion_c NUMBER,idUsuario_c NUMBER);
+PROCEDURE ELIMINAR_PROFESIONAL(idProfesional_c NUMBER);
+END PKG_PROFESIONAL;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_REPORTE
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_REPORTE" 
+IS
+PROCEDURE INSERTAR_REPORTE(idReporte_c NUMBER,visitas_c NUMBER,capacitacion_c NUMBER,accidentes_c NUMBER,multas_c NUMBER,idUsuAdmin_c NUMBER,idCliente_c NUMBER);
+PROCEDURE MODIFICAR_REPORTE(idReporte_c NUMBER,visitas_c NUMBER,capacitacion_c NUMBER,accidentes_c NUMBER,multas_c NUMBER,idUsuAdmin_c NUMBER,idCliente_c NUMBER);
+PROCEDURE ELIMINAR_REPORTE(idReporte_c NUMBER);
+END PKG_REPORTE;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_RUBRO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_RUBRO" 
+IS
+PROCEDURE INSERTAR_RUBRO(idRubro_c NUMBER,descripcion_c VARCHAR2);
+PROCEDURE MODIFICAR_RUBRO(idRubro_c NUMBER,descripcion_c VARCHAR2);
+PROCEDURE ELIMINAR_RUBRO(idRubro_c NUMBER);
+END PKG_RUBRO;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_SERVICIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_SERVICIO" 
+IS
+PROCEDURE INSERTAR_SERVICIO(idServicio_c NUMBER,descripcion_c NUMBER);
+PROCEDURE MODIFICAR_SERVICIO(idServicio_c NUMBER,descripcion_c NUMBER);
+PROCEDURE ELIMINAR_SERVICIO(idServicio_c NUMBER);
+END PKG_SERVICIO;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_TIPOEVENTO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_TIPOEVENTO" 
+IS
+PROCEDURE INSERTAR_TIPOEVENTO(idTipoEvento_c NUMBER,descripcion_c VARCHAR2);
+PROCEDURE MODIFICAR_TIPOEVENTO(idTipoEvento_c NUMBER,descripcion_c VARCHAR2);
+PROCEDURE ELIMINAR_TIPOEVENTO(idTipoEvento_c NUMBER);
+END PKG_TIPOEVENTO;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_TIPOUSUARIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_TIPOUSUARIO" 
+IS
+PROCEDURE INSERTAR_TIPOUSUARIO(idTipoUsuario_c NUMBER,descripcion_c VARCHAR);
+PROCEDURE MODIFICAR_TIPOUSUARIO(idTipoUsuario_c NUMBER,descripcion_c VARCHAR);
+PROCEDURE ELIMINAR_TIPOUSUARIO(idTipoUsuario_c NUMBER);
+END PKG_TIPOUSUARIO;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_UBICACION
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_UBICACION" 
+is
+PROCEDURE INSERTAR_UBICACION(idUbicacion_c NUMBER,direccion_c VARCHAR2,fecha_c DATE);
+PROCEDURE MODIFICAR_UBICACION(idUbicacion_c NUMBER,direccion_c VARCHAR2,fecha_c DATE);
+PROCEDURE ELIMINAR_UBICACION(idUbicacion_c NUMBER);
+END PKG_UBICACION;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_USUARIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "nomasacc"."PKG_USUARIO" 
+IS
+PROCEDURE INSERTAR_USUARIO(idUsuario_c NUMBER,user_c VARCHAR2,pass_c VARCHAR2,estadoUsuario_c NUMBER,idTipoUsuario_c NUMBER);
+PROCEDURE MODIFICAR_USUARIO(idUsuario_c NUMBER,user_c VARCHAR2,pass_c VARCHAR2,estadoUsuario_c NUMBER,idTipoUsuario_c NUMBER);
+PROCEDURE ELIMINAR_USUARIO(idUsuario_c NUMBER);
+END PKG_USUARIO;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_BOLETA
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_BOLETA" 
+IS
+
+PROCEDURE INSERTAR_BOLETA(idBoleta_c NUMBER,fecPago_c DATE,fecLimite_c DATE,monto_c NUMBER,estadoBoleta_c NUMBER,idPlan_c NUMBER)
+IS
+BEGIN
+INSERT INTO BOLETA VALUES (idBoleta_c,fecPago_c,fecLimite_c,monto_c,estadoBoleta_c,idPlan_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_BOLETA;
+
+PROCEDURE MODIFICAR_BOLETA(idBoleta_c NUMBER,fecPago_c DATE,fecLimite_c DATE,monto_c NUMBER,estadoBoleta_c NUMBER,idPlan_c NUMBER)
+IS
+BEGIN
+UPDATE BOLETA
+SET
+fecPago = fecPago_c,
+fecLimite = fecLimite_c,
+monto = monto_c,
+estadoBoleta = estadoBoleta_c,
+idPlan = idPlan_c
+WHERE
+idBoleta = idBoleta_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_BOLETA;
+
+PROCEDURE ELIMINAR_BOLETA(idBoleta_c NUMBER)
+IS
+BEGIN
+DELETE FROM BOLETA
+WHERE
+idBoleta = idBoleta_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_BOLETA;
+
+END PKG_BOLETA;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_CAPACITACION
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_CAPACITACION" 
+IS
+
+PROCEDURE INSERTAR_CAPACITACION(idCapacitacion_c NUMBER,fecha_c DATE,descripcion_c VARCHAR2,cantAsistentes_c NUMBER,idPlan_c NUMBER)
+IS
+BEGIN
+INSERT INTO CAPACITACION VALUES (idCapacitacion_c,fecha_c,descripcion_c,cantAsistentes_c,idPlan_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_CAPACITACION;
+
+PROCEDURE MODIFICAR_CAPACITACION(idCapacitacion_c NUMBER,fecha_c DATE,descripcion_c VARCHAR2,cantAsistentes_c NUMBER,idPlan_c NUMBER)
+IS
+BEGIN
+UPDATE CAPACITACION
+SET
+fecha = fecha_c,
+descripcion = descripcion_c,
+cantAsistentes = cantAsistentes_c,
+idPlan = idPlan_c
+WHERE
+idCapacitacion = idCapacitacion_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_CAPACITACION;
+
+PROCEDURE ELIMINAR_CAPACITACION(idCapacitacion_c NUMBER)
+IS
+BEGIN
+DELETE FROM CAPACITACION
+WHERE
+idCapacitacion = idCapacitacion_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_CAPACITACION;
+
+END PKG_CAPACITACION;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_CHECKLIST
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_CHECKLIST" 
+IS
+
+PROCEDURE INSERTAR_CHECKLIST(idCheck_c NUMBER,descripcion_c VARCHAR2,idPlan_c NUMBER)
+IS
+BEGIN
+INSERT INTO CHECKLIST VALUES (idCheck_c,descripcion_c,idPlan_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_CHECKLIST;
+
+PROCEDURE MODIFICAR_CHECKLIST(idCheck_c NUMBER,descripcion_c VARCHAR2,idPlan_c NUMBER)
+IS
+BEGIN
+UPDATE CHECKLIST
+SET
+descripcion = descripcion_c,
+idPlan = idPlan_c
+WHERE
+idCheck = idCheck_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_CHECKLIST;
+
+PROCEDURE ELIMINAR_CHECKLIST(idCheck_c NUMBER)
+IS
+BEGIN
+DELETE FROM CHECKLIST
+WHERE
+idCheck = idCheck_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_CHECKLIST;
+
+END PKG_CHECKLIST;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_CHECKLISTREPORTE
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_CHECKLISTREPORTE" 
+IS
+
+PROCEDURE INSERTAR_CHECKLISTREPORTE(idCheckReporte_c NUMBER,estadoCheck_c NUMBER,fecha_c DATE,mejora_c VARCHAR2,idCheckList_c NUMBER)
+IS
+BEGIN
+INSERT INTO CHECKLISTREPORTE VALUES (idCheckReporte_c,estadoCheck_c,fecha_c,mejora_c,idCheckList_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_CHECKLISTREPORTE;
+
+PROCEDURE MODIFICAR_CHECKLISTREPORTE(idCheckReporte_c NUMBER,estadoCheck_c NUMBER,fecha_c DATE,mejora_c VARCHAR2,idCheckList_c NUMBER)
+IS
+BEGIN
+UPDATE CHECKLISTREPORTE
+SET
+estadoCheck = estadoCheck_c,
+fecha = fecha_c,
+mejora = mejora_c,
+idCheckList = idCheckList_c
+WHERE
+idCheckReporte = idCheckReporte_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_CHECKLISTREPORTE;
+
+PROCEDURE ELIMINAR_CHECKLISTREPORTE(idCheckReporte_c NUMBER)
+IS
+BEGIN
+DELETE FROM CHECKLISTREPORTE
+WHERE
+idCheckReporte = idCheckReporte_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_CHECKLISTREPORTE;
+
+END PKG_CHECKLISTREPORTE;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_CIUDAD
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_CIUDAD" 
+IS
+PROCEDURE INSERTAR_CIUDAD(idCiudad_c NUMBER,descripcion_c VARCHAR)
+IS
+BEGIN
+INSERT INTO CIUDAD VALUES (
+            idCiudad_c,descripcion_c
+        ); 
+
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_CIUDAD;
+
+PROCEDURE MODIFICAR_CIUDAD(idCiudad_c NUMBER,descripcion_c VARCHAR)
+IS
+BEGIN
+UPDATE CIUDAD
+SET
+descripcion = descripcion_c
+WHERE
+idCiudad = idCiudad_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_CIUDAD;
+
+
+
+PROCEDURE ELIMINAR_CIUDAD(idCiudad_c NUMBER)
+IS
+BEGIN
+DELETE FROM CIUDAD
+WHERE
+idCiudad = idCiudad_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_CIUDAD;
+
+END PKG_CIUDAD;
+
+
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_CLIENTE
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_CLIENTE" 
+IS
+
+PROCEDURE INSERTAR_CLIENTE(idCliente_c NUMBER,rut_c VARCHAR2,nombre_c VARCHAR2,apePaterno_c VARCHAR2,apeMaterno_c VARCHAR2,direccion_c VARCHAR2,email_c VARCHAR2,telefono_c VARCHAR2,idComuna_c NUMBER,idRubro_c NUMBER,idUsuario_c NUMBER)
+IS
+BEGIN
+INSERT INTO CLIENTE VALUES (idCliente_c,rut_c,nombre_c,apePaterno_c,apeMaterno_c,direccion_c,email_c,telefono_c,idComuna_c,idRubro_c,idUsuario_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_CLIENTE;
+
+PROCEDURE MODIFICAR_CLIENTE(idCliente_c NUMBER,rut_c VARCHAR2,nombre_c VARCHAR2,apePaterno_c VARCHAR2,apeMaterno_c VARCHAR2,direccion_c VARCHAR2,email_c VARCHAR2,telefono_c VARCHAR2,idComuna_c NUMBER,idRubro_c NUMBER,idUsuario_c NUMBER)
+IS
+BEGIN
+UPDATE CLIENTE
+SET
+rut = rut_c,
+nombre = nombre_c,
+apePaterno = apePaterno_c,
+apeMaterno = apeMaterno_c,
+direccion = direccion_c,
+email = email_c,
+telefono = telefono_c,
+idComuna = idComuna_c,
+idRubro = idRubro_c,
+idUsuario = idUsuario_c
+WHERE
+idCliente = idCliente_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_CLIENTE;
+
+
+PROCEDURE ELIMINAR_CLIENTE(idCliente_c NUMBER)
+IS
+BEGIN
+DELETE FROM CLIENTE
+WHERE
+idCliente = idCliente_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_CLIENTE;
+
+END PKG_CLIENTE;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_COMUNA
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_COMUNA" 
+IS
+PROCEDURE INSERTAR_COMUNA(idComuna_c NUMBER,descripcion_c VARCHAR2,idCiudad_c NUMBER)
+IS
+BEGIN
+INSERT INTO COMUNA VALUES (
+		idComuna_c,descripcion_c,idCiudad_c
+	     ); 
+
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_COMUNA;
+
+PROCEDURE MODIFICAR_COMUNA(idComuna_c NUMBER,descripcion_c VARCHAR2,idCiudad_c NUMBER)
+IS
+BEGIN
+UPDATE COMUNA
+SET
+descripcion = descripcion_c,
+idCiudad = idCiudad_c
+WHERE
+idComuna = idComuna_c;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_COMUNA;
+
+
+PROCEDURE ELIMINAR_COMUNA(idComuna_c NUMBER)
+IS
+BEGIN
+DELETE FROM COMUNA
+WHERE
+idComuna = idComuna_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_COMUNA;
+
+END PKG_COMUNA;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_DETALLEBOLETA
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_DETALLEBOLETA" 
+IS
+
+PROCEDURE INSERTAR_DETALLEBOLETA(idDetalleBoleta_c NUMBER,precio_c NUMBER,idBoleta_c NUMBER,idServicio_c NUMBER)
+IS
+BEGIN
+INSERT INTO DETALLEBOLETA VALUES (idDetalleBoleta_c,precio_c,idBoleta_c,idServicio_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_DETALLEBOLETA;
+
+PROCEDURE MODIFICAR_DETALLEBOLETA(idDetalleBoleta_c NUMBER,precio_c NUMBER,idBoleta_c NUMBER,idServicio_c NUMBER)
+IS
+BEGIN
+UPDATE DETALLEBOLETA
+SET
+precio = precio_c,
+idBoleta = idBoleta_c,
+idServicio = idServicio_c
+WHERE
+idDetalleBoleta = idDetalleBoleta_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_DETALLEBOLETA;
+
+PROCEDURE ELIMINAR_DETALLEBOLETA(idDetalleBoleta_c NUMBER)
+IS
+BEGIN
+DELETE FROM DETALLEBOLETA
+WHERE
+idDetalleBoleta = idDetalleBoleta_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_DETALLEBOLETA;
+
+END PKG_DETALLEBOLETA;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_EVENTO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_EVENTO" 
+IS
+
+PROCEDURE INSERTAR_EVENTO(idEvento_c NUMBER,asesoria_c VARCHAR2,fecha_c DATE,idTipoEvento_c NUMBER,idPlan_c NUMBER)
+IS
+BEGIN
+INSERT INTO EVENTO VALUES (idEvento_c,asesoria_c,fecha_c,idTipoEvento_c,idPlan_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_EVENTO;
+
+PROCEDURE MODIFICAR_EVENTO(idEvento_c NUMBER,asesoria_c VARCHAR2,fecha_c DATE,idTipoEvento_c NUMBER,idPlan_c NUMBER)
+IS
+BEGIN
+UPDATE EVENTO
+SET
+asesoria = asesoria_c,
+fecha = fecha_c,
+idTipoEvento = idTipoEvento_c,
+idPlan = idPlan_c
+WHERE
+idEvento = idEvento_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_EVENTO;
+
+PROCEDURE ELIMINAR_EVENTO(idEvento_c NUMBER)
+IS
+BEGIN
+DELETE FROM EVENTO
+WHERE
+idEvento = idEvento_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_EVENTO;
+
+END PKG_EVENTO;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_MODIFICACIONCHECK
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_MODIFICACIONCHECK" 
+IS
+
+PROCEDURE INSERTAR_MODIFICACIONCHECK(idModificacion_c NUMBER,fecha_c DATE,idCheck_c NUMBER)
+IS
+BEGIN
+INSERT INTO MODIFICACIONCHECK VALUES (idModificacion_c,fecha_c,idCheck_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_MODIFICACIONCHECK;
+
+
+PROCEDURE MODIFICAR_MODIFICACIONCHECK(idModificacion_c NUMBER,fecha_c DATE,idCheck_c NUMBER)
+IS
+BEGIN
+UPDATE MODIFICACIONCHECK
+SET
+fecha = fecha_c,
+idCheck = idCheck_c
+WHERE
+idModificacion = idModificacion_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_MODIFICACIONCHECK;
+
+
+PROCEDURE ELIMINAR_MODIFICACIONCHECK(idModificacion_c NUMBER)
+IS
+BEGIN
+DELETE FROM MODIFICACIONCHECK
+WHERE
+idModificacion = idModificacion_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_MODIFICACIONCHECK;
+
+END PKG_MODIFICACIONCHECK;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_PLANCONTRATADO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_PLANCONTRATADO" 
+IS
+PROCEDURE INSERTAR_PLANCONTRATADO(idPlan_c NUMBER,fecPlan_c DATE,precio_c NUMBER,sucursal_c VARCHAR2,estado_c NUMBER,idCliente_c NUMBER,idProfesional_c NUMBER)
+IS
+BEGIN
+INSERT INTO PLANCONTRATADO VALUES (idPlan_c,fecPlan_c,precio_c,sucursal_c,estado_c,idCliente_c,idProfesional_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_PLANCONTRATADO;
+
+PROCEDURE MODIFICAR_PLANCONTRATADO(idPlan_c NUMBER,fecPlan_c DATE,precio_c NUMBER,sucursal_c VARCHAR2,estado_c NUMBER,idCliente_c NUMBER,idProfesional_c NUMBER)
+IS
+BEGIN
+UPDATE PLANCONTRATADO
+SET
+fecPlan = fecPlan_c,
+precio = precio_c,
+sucursal = sucursal_c,
+estado = estado_c,
+idCliente = idCliente_c,
+idProfesional = idProfesional_c
+WHERE
+idPlan = idPlan_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_PLANCONTRATADO;
+
+PROCEDURE ELIMINAR_PLANCONTRATADO(idPlan_c NUMBER)
+IS
+BEGIN
+DELETE FROM PLANCONTRATADO
+WHERE
+idPlan = idPlan_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_PLANCONTRATADO;
+
+END PKG_PLANCONTRATADO;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_PROFESIONAL
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_PROFESIONAL" 
+IS
+PROCEDURE INSERTAR_PROFESIONAL(idProfesional_c NUMBER,rut_c VARCHAR2,nombre_c VARCHAR2,apePaterno_c VARCHAR2,apeMaterno_c VARCHAR2,telefono_c VARCHAR2,fecNacimiento_c DATE,idComuna_c NUMBER,idUbicacion_c NUMBER,idUsuario_c NUMBER)
+IS
+BEGIN
+INSERT INTO PROFESIONAL VALUES (idProfesional_c,rut_c,nombre_c,apePaterno_c,apeMaterno_c,telefono_c,fecNacimiento_c,idComuna_c,idUbicacion_c,idUsuario_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_PROFESIONAL;
+
+PROCEDURE MODIFICAR_PROFESIONAL(idProfesional_c NUMBER,rut_c VARCHAR2,nombre_c VARCHAR2,apePaterno_c VARCHAR2,apeMaterno_c VARCHAR2,telefono_c VARCHAR2,fecNacimiento_c DATE,idComuna_c NUMBER,idUbicacion_c NUMBER,idUsuario_c NUMBER)
+IS
+BEGIN
+UPDATE PROFESIONAL
+SET
+rut = rut_c,
+nombre = nombre_c,
+apePaterno = apePaterno_c,
+apeMaterno = apeMaterno_c,
+telefono = telefono_c,
+fecNacimiento = fecNacimiento_c,
+idComuna = idComuna_c,
+idUbicacion = idUbicacion_c,
+idUsuario = idUsuario_c
+WHERE
+idProfesional = idProfesional_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_PROFESIONAL;
+
+PROCEDURE ELIMINAR_PROFESIONAL(idProfesional_c NUMBER)
+IS
+BEGIN
+DELETE FROM PROFESIONAL
+WHERE
+idProfesional = idProfesional_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_PROFESIONAL;
+
+END PKG_PROFESIONAL;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_REPORTE
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_REPORTE" 
+IS
+
+PROCEDURE INSERTAR_REPORTE(idReporte_c NUMBER,visitas_c NUMBER,capacitacion_c NUMBER,accidentes_c NUMBER,multas_c NUMBER,idUsuAdmin_c NUMBER,idCliente_c NUMBER)
+IS
+BEGIN
+INSERT INTO REPORTE VALUES (idReporte_c,visitas_c,capacitacion_c,accidentes_c,multas_c,idUsuAdmin_c,idCliente_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_REPORTE;
+
+PROCEDURE MODIFICAR_REPORTE(idReporte_c NUMBER,visitas_c NUMBER,capacitacion_c NUMBER,accidentes_c NUMBER,multas_c NUMBER,idUsuAdmin_c NUMBER,idCliente_c NUMBER)
+IS
+BEGIN
+UPDATE REPORTE
+SET
+visitas = visitas_c,
+capacitacion = capacitacion_c,
+accidentes = accidentes_c,
+multas = multas_c,
+idUsuAdmin = idUsuAdmin_c,
+idCliente = idCliente_c
+WHERE
+idReporte = idReporte_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_REPORTE;
+
+
+PROCEDURE ELIMINAR_REPORTE(idReporte_c NUMBER)
+IS
+BEGIN
+DELETE FROM REPORTE
+WHERE
+idReporte = idReporte_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_REPORTE;
+
+END PKG_REPORTE;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_RUBRO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_RUBRO" 
+IS
+
+PROCEDURE INSERTAR_RUBRO(idRubro_c NUMBER,descripcion_c VARCHAR2)
+IS
+BEGIN
+INSERT INTO RUBRO VALUES (idRubro_c,descripcion_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_RUBRO;
+
+PROCEDURE MODIFICAR_RUBRO(idRubro_c NUMBER,descripcion_c VARCHAR2)
+IS
+BEGIN
+UPDATE RUBRO
+SET
+descripcion = descripcion_c
+WHERE
+idRubro = idRubro_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_RUBRO;
+
+PROCEDURE ELIMINAR_RUBRO(idRubro_c NUMBER)
+IS
+BEGIN
+DELETE FROM RUBRO
+WHERE
+idRubro = idRubro_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_RUBRO;
+
+END PKG_RUBRO;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_SERVICIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_SERVICIO" 
+IS
+
+PROCEDURE INSERTAR_SERVICIO(idServicio_c NUMBER,descripcion_c NUMBER)
+IS
+BEGIN
+INSERT INTO SERVICIO VALUES (idServicio_c,descripcion_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_SERVICIO;
+
+PROCEDURE MODIFICAR_SERVICIO(idServicio_c NUMBER,descripcion_c NUMBER)
+IS
+BEGIN
+UPDATE SERVICIO
+SET
+descripcion = descripcion_c
+WHERE
+idServicio = idServicio_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_SERVICIO;
+
+PROCEDURE ELIMINAR_SERVICIO(idServicio_c NUMBER)
+IS
+BEGIN
+DELETE FROM SERVICIO
+WHERE
+idServicio = idServicio_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_SERVICIO;
+
+END PKG_SERVICIO;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_TIPOEVENTO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_TIPOEVENTO" 
+IS
+
+PROCEDURE INSERTAR_TIPOEVENTO(idTipoEvento_c NUMBER,descripcion_c VARCHAR2)
+IS
+BEGIN
+INSERT INTO TIPOEVENTO VALUES (idTipoEvento_c,descripcion_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_TIPOEVENTO;
+
+PROCEDURE MODIFICAR_TIPOEVENTO(idTipoEvento_c NUMBER,descripcion_c VARCHAR2)
+IS
+BEGIN
+UPDATE TIPOEVENTO
+SET
+descripcion = descripcion_c
+WHERE
+idTipoEvento = idTipoEvento_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_TIPOEVENTO;
+
+
+PROCEDURE ELIMINAR_TIPOEVENTO(idTipoEvento_c NUMBER)
+IS
+BEGIN
+DELETE FROM TIPOEVENTO
+WHERE
+idTipoEvento = idTipoEvento_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_TIPOEVENTO;
+
+END PKG_TIPOEVENTO;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_TIPOUSUARIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_TIPOUSUARIO" 
+IS
+PROCEDURE INSERTAR_TIPOUSUARIO(idTipoUsuario_c NUMBER,descripcion_c VARCHAR)
+IS
+BEGIN
+INSERT INTO TIPOUSUARIO VALUES (
+            idTipoUsuario_c,descripcion_c
+        ); 
+
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_TIPOUSUARIO;
+
+PROCEDURE MODIFICAR_TIPOUSUARIO(idTipoUsuario_c NUMBER,descripcion_c VARCHAR)
+IS
+BEGIN
+UPDATE TIPOUSUARIO
+SET
+descripcion = descripcion_c
+WHERE
+idTipoUsuario = idTipoUsuario_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_TIPOUSUARIO;
+
+PROCEDURE ELIMINAR_TIPOUSUARIO(idTipoUsuario_c NUMBER)
+IS
+BEGIN
+DELETE FROM TIPOUSUARIO
+WHERE
+idTipoUsuario = idTipoUsuario_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_TIPOUSUARIO;
+
+END PKG_TIPOUSUARIO;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_UBICACION
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_UBICACION" 
+IS
+PROCEDURE INSERTAR_UBICACION(idUbicacion_c NUMBER,direccion_c VARCHAR2,fecha_c DATE)
+IS
+BEGIN
+INSERT INTO UBICACION VALUES (idUbicacion_c,direccion_c,fecha_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_UBICACION;
+
+PROCEDURE MODIFICAR_UBICACION(idUbicacion_c NUMBER,direccion_c VARCHAR2,fecha_c DATE)
+IS
+BEGIN
+UPDATE UBICACION
+SET
+direccion = direccion_c,
+fecha = fecha_c
+WHERE
+idUbicacion = idUbicacion_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_UBICACION;
+
+PROCEDURE ELIMINAR_UBICACION(idUbicacion_c NUMBER)
+IS
+BEGIN
+DELETE FROM UBICACION
+WHERE
+idUbicacion = idUbicacion_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_UBICACION;
+
+END PKG_UBICACION;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_USUARIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "nomasacc"."PKG_USUARIO" 
+IS
+PROCEDURE INSERTAR_USUARIO(idUsuario_c NUMBER,user_c VARCHAR2,pass_c VARCHAR2,estadoUsuario_c NUMBER,idTipoUsuario_c NUMBER)
+IS
+BEGIN
+INSERT INTO USUARIO VALUES (idUsuario_c,user_c,pass_c,estadoUsuario_c,idTipoUsuario_c);
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END INSERTAR_USUARIO;
+
+PROCEDURE MODIFICAR_USUARIO(idUsuario_c NUMBER,user_c VARCHAR2,pass_c VARCHAR2,estadoUsuario_c NUMBER,idTipoUsuario_c NUMBER)
+IS
+BEGIN
+UPDATE USUARIO
+SET
+usu = user_c,
+pass = pass_c,
+estadoUsuario = estadoUsuario_c,
+idTipoUsuario = idTipoUsuario_c
+WHERE
+idUsuario = idUsuario_c;
+COMMIT;
+EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+    END MODIFICAR_USUARIO;
+
+PROCEDURE ELIMINAR_USUARIO(idUsuario_c NUMBER)
+IS
+BEGIN
+DELETE FROM USUARIO
+WHERE
+idUsuario = idUsuario_c;
+COMMIT;
+EXCEPTION
+WHEN OTHERS THEN
+            ROLLBACK;
+END ELIMINAR_USUARIO;
+
+END PKG_USUARIO;
+
+/
+--------------------------------------------------------
+--  Constraints for Table BOLETA
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."BOLETA" ADD CONSTRAINT "BOLETA_PK" PRIMARY KEY ("IDBOLETA")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."BOLETA" MODIFY ("IDPLAN" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."BOLETA" MODIFY ("ESTADOBOLETA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."BOLETA" MODIFY ("MONTO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."BOLETA" MODIFY ("FECLIMITE" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."BOLETA" MODIFY ("FECPAGO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."BOLETA" MODIFY ("IDBOLETA" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CAPACITACION
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."CAPACITACION" ADD CONSTRAINT "CAPACITACION_PK" PRIMARY KEY ("IDCAPACITACION")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."CAPACITACION" MODIFY ("IDPLAN" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CAPACITACION" MODIFY ("CANTASISTENTES" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CAPACITACION" MODIFY ("DESCRIPCION" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CAPACITACION" MODIFY ("FECHA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CAPACITACION" MODIFY ("IDCAPACITACION" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CHECKLIST
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."CHECKLIST" ADD CONSTRAINT "CHECK_PK" PRIMARY KEY ("IDCHECK")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."CHECKLIST" MODIFY ("IDPLAN" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CHECKLIST" MODIFY ("DESCRIPCION" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CHECKLIST" MODIFY ("IDCHECK" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CHECKLISTREPORTE
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."CHECKLISTREPORTE" ADD CONSTRAINT "CHECK_REPORTE_PK" PRIMARY KEY ("IDCHECKREPORTE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."CHECKLISTREPORTE" MODIFY ("IDCHECKLIST" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CHECKLISTREPORTE" MODIFY ("MEJORA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CHECKLISTREPORTE" MODIFY ("FECHA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CHECKLISTREPORTE" MODIFY ("ESTADOCHECK" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CHECKLISTREPORTE" MODIFY ("IDCHECKREPORTE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CIUDAD
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."CIUDAD" ADD CONSTRAINT "CIUDAD_PK" PRIMARY KEY ("IDCIUDAD")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."CIUDAD" MODIFY ("DESCRIPCION" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CIUDAD" MODIFY ("IDCIUDAD" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CLIENTE
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."CLIENTE" ADD CONSTRAINT "CLIENTE_PK" PRIMARY KEY ("IDCLIENTE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("IDUSUARIO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("IDRUBRO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("IDCOMUNA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("TELEFONO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("EMAIL" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("DIRECCION" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("APEMATERNO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("APEPATERNO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("NOMBRE" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("RUT" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."CLIENTE" MODIFY ("IDCLIENTE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table COMUNA
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."COMUNA" ADD CONSTRAINT "COMUNA_PK" PRIMARY KEY ("IDCOMUNA")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."COMUNA" MODIFY ("IDCIUDAD" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."COMUNA" MODIFY ("DESCRIPCION" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."COMUNA" MODIFY ("IDCOMUNA" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table DETALLEBOLETA
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."DETALLEBOLETA" ADD CONSTRAINT "IDDETALLEBOLETA" PRIMARY KEY ("IDDETALLEBOLETA")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."DETALLEBOLETA" MODIFY ("IDSERVICIO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."DETALLEBOLETA" MODIFY ("IDBOLETA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."DETALLEBOLETA" MODIFY ("PRECIO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."DETALLEBOLETA" MODIFY ("IDDETALLEBOLETA" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table EVENTO
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."EVENTO" ADD CONSTRAINT "EVENTO_PK" PRIMARY KEY ("IDEVENTO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."EVENTO" MODIFY ("IDPLAN" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."EVENTO" MODIFY ("IDTIPOEVENTO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."EVENTO" MODIFY ("FECHA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."EVENTO" MODIFY ("ASESORIA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."EVENTO" MODIFY ("IDEVENTO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table MODIFICACIONCHECK
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."MODIFICACIONCHECK" ADD CONSTRAINT "MODCHECK_PK" PRIMARY KEY ("IDMODIFICACION")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."MODIFICACIONCHECK" MODIFY ("IDCHECK" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."MODIFICACIONCHECK" MODIFY ("FECHA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."MODIFICACIONCHECK" MODIFY ("IDMODIFICACION" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table PLANCONTRATADO
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."PLANCONTRATADO" ADD CONSTRAINT "PLAN_PK" PRIMARY KEY ("IDPLAN")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."PLANCONTRATADO" MODIFY ("IDPROFESIONAL" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PLANCONTRATADO" MODIFY ("IDCLIENTE" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PLANCONTRATADO" MODIFY ("ESTADO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PLANCONTRATADO" MODIFY ("SUCURSAL" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PLANCONTRATADO" MODIFY ("PRECIO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PLANCONTRATADO" MODIFY ("FECPLAN" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PLANCONTRATADO" MODIFY ("IDPLAN" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table PROFESIONAL
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."PROFESIONAL" ADD CONSTRAINT "PROFESIONAL_PK" PRIMARY KEY ("IDPROFESIONAL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."PROFESIONAL" MODIFY ("IDUSUARIO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PROFESIONAL" MODIFY ("IDCOMUNA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PROFESIONAL" MODIFY ("FECNACIMIENTO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PROFESIONAL" MODIFY ("TELEFONO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PROFESIONAL" MODIFY ("APEMATERNO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PROFESIONAL" MODIFY ("APEPATERNO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PROFESIONAL" MODIFY ("NOMBRE" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PROFESIONAL" MODIFY ("RUT" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."PROFESIONAL" MODIFY ("IDPROFESIONAL" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table REPORTE
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."REPORTE" ADD CONSTRAINT "REPORTE_PK" PRIMARY KEY ("IDREPORTE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."REPORTE" MODIFY ("IDCLIENTE" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."REPORTE" MODIFY ("IDUSUADMIN" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."REPORTE" MODIFY ("MULTAS" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."REPORTE" MODIFY ("ACCIDENTES" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."REPORTE" MODIFY ("CAPACITACION" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."REPORTE" MODIFY ("VISITAS" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."REPORTE" MODIFY ("IDREPORTE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table RUBRO
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."RUBRO" ADD CONSTRAINT "RUBRO_PK" PRIMARY KEY ("IDRUBRO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."RUBRO" MODIFY ("DESCRIPCION" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."RUBRO" MODIFY ("IDRUBRO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table SERVICIO
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."SERVICIO" ADD CONSTRAINT "SERVICIO_PK" PRIMARY KEY ("IDSERVICIO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."SERVICIO" MODIFY ("DESCRIPCION" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."SERVICIO" MODIFY ("IDSERVICIO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table TIPOEVENTO
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."TIPOEVENTO" ADD CONSTRAINT "TIPO_EVENTO_PK" PRIMARY KEY ("IDTIPOEVENTO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."TIPOEVENTO" MODIFY ("DESCRIPCION" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."TIPOEVENTO" MODIFY ("IDTIPOEVENTO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table TIPOUSUARIO
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."TIPOUSUARIO" ADD CONSTRAINT "TIPO_USUARIO_PK" PRIMARY KEY ("IDTIPOUSUARIO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."TIPOUSUARIO" MODIFY ("IDTIPOUSUARIO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table UBICACION
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."UBICACION" ADD CONSTRAINT "UBICACION_PK" PRIMARY KEY ("IDUBICACION")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."PROFESIONAL" MODIFY ("IDPROFESIONAL" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."UBICACION" MODIFY ("FECHA" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."UBICACION" MODIFY ("DIRECCION" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table USUARIO
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."USUARIO" ADD CONSTRAINT "USUARIO_PK" PRIMARY KEY ("IDUSUARIO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "nomasacc"."USUARIO" MODIFY ("IDTIPOUSUARIO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."USUARIO" MODIFY ("ESTADOUSUARIO" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."USUARIO" MODIFY ("PASS" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."USUARIO" MODIFY ("USU" NOT NULL ENABLE);
+  ALTER TABLE "nomasacc"."USUARIO" MODIFY ("IDUSUARIO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table BOLETA
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."BOLETA" ADD CONSTRAINT "PLAN_FK" FOREIGN KEY ("IDPLAN")
+	  REFERENCES "nomasacc"."PLANCONTRATADO" ("IDPLAN") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table CAPACITACION
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."CAPACITACION" ADD CONSTRAINT "CAPACITACION_PLAN_FK" FOREIGN KEY ("IDPLAN")
+	  REFERENCES "nomasacc"."PLANCONTRATADO" ("IDPLAN") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table CHECKLIST
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."CHECKLIST" ADD CONSTRAINT "CHECK_PLAN_FK" FOREIGN KEY ("IDPLAN")
+	  REFERENCES "nomasacc"."PLANCONTRATADO" ("IDPLAN") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table CHECKLISTREPORTE
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."CHECKLISTREPORTE" ADD CONSTRAINT "CHECKLIST_FK" FOREIGN KEY ("IDCHECKLIST")
+	  REFERENCES "nomasacc"."CHECKLIST" ("IDCHECK") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table CLIENTE
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."CLIENTE" ADD CONSTRAINT "CLI_COMUNA_FK" FOREIGN KEY ("IDCOMUNA")
+	  REFERENCES "nomasacc"."COMUNA" ("IDCOMUNA") ENABLE;
+  ALTER TABLE "nomasacc"."CLIENTE" ADD CONSTRAINT "CLI_USUARIO_FK" FOREIGN KEY ("IDUSUARIO")
+	  REFERENCES "nomasacc"."USUARIO" ("IDUSUARIO") ENABLE;
+  ALTER TABLE "nomasacc"."CLIENTE" ADD CONSTRAINT "RUBRO_FK" FOREIGN KEY ("IDRUBRO")
+	  REFERENCES "nomasacc"."RUBRO" ("IDRUBRO") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table COMUNA
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."COMUNA" ADD CONSTRAINT "COMUNA_CIUDAD_FK" FOREIGN KEY ("IDCIUDAD")
+	  REFERENCES "nomasacc"."CIUDAD" ("IDCIUDAD") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table DETALLEBOLETA
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."DETALLEBOLETA" ADD CONSTRAINT "BOLETA_FK" FOREIGN KEY ("IDBOLETA")
+	  REFERENCES "nomasacc"."BOLETA" ("IDBOLETA") ENABLE;
+  ALTER TABLE "nomasacc"."DETALLEBOLETA" ADD CONSTRAINT "SERVICIO_FK" FOREIGN KEY ("IDSERVICIO")
+	  REFERENCES "nomasacc"."SERVICIO" ("IDSERVICIO") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table EVENTO
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."EVENTO" ADD CONSTRAINT "EVENTO_PLAN_FK" FOREIGN KEY ("IDPLAN")
+	  REFERENCES "nomasacc"."PLANCONTRATADO" ("IDPLAN") ENABLE;
+  ALTER TABLE "nomasacc"."EVENTO" ADD CONSTRAINT "TIPO_EVENTO_FK" FOREIGN KEY ("IDTIPOEVENTO")
+	  REFERENCES "nomasacc"."TIPOEVENTO" ("IDTIPOEVENTO") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table MODIFICACIONCHECK
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."MODIFICACIONCHECK" ADD CONSTRAINT "MOD_CHECK_FK" FOREIGN KEY ("IDCHECK")
+	  REFERENCES "nomasacc"."CHECKLIST" ("IDCHECK") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table PLANCONTRATADO
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."PLANCONTRATADO" ADD CONSTRAINT "CLIENTE_FK" FOREIGN KEY ("IDCLIENTE")
+	  REFERENCES "nomasacc"."CLIENTE" ("IDCLIENTE") ENABLE;
+  ALTER TABLE "nomasacc"."PLANCONTRATADO" ADD CONSTRAINT "PROFESIONAL_FK" FOREIGN KEY ("IDPROFESIONAL")
+	  REFERENCES "nomasacc"."PROFESIONAL" ("IDPROFESIONAL") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table PROFESIONAL
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."PROFESIONAL" ADD CONSTRAINT "PROF_COMUNA_FK" FOREIGN KEY ("IDCOMUNA")
+	  REFERENCES "nomasacc"."COMUNA" ("IDCOMUNA") ENABLE;
+  ALTER TABLE "nomasacc"."PROFESIONAL" ADD CONSTRAINT "PROF_USUARIO_FK" FOREIGN KEY ("IDUSUARIO")
+	  REFERENCES "nomasacc"."USUARIO" ("IDUSUARIO") ENABLE;
+  ALTER TABLE "nomasacc"."UBICACION" ADD CONSTRAINT "UBICACION_PROF_FK" FOREIGN KEY ("IDPROFESIONAL")
+	  REFERENCES "nomasacc"."PROFESIONAL" ("IDPROFESIONAL") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table REPORTE
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."REPORTE" ADD CONSTRAINT "IDCLIENTE_FK" FOREIGN KEY ("IDCLIENTE")
+	  REFERENCES "nomasacc"."CLIENTE" ("IDCLIENTE") ENABLE;
+  ALTER TABLE "nomasacc"."REPORTE" ADD CONSTRAINT "IDUSUARIO_FK" FOREIGN KEY ("IDUSUADMIN")
+	  REFERENCES "nomasacc"."USUARIO" ("IDUSUARIO") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table USUARIO
+--------------------------------------------------------
+
+  ALTER TABLE "nomasacc"."USUARIO" ADD CONSTRAINT "TIPO_USUARIO_FK" FOREIGN KEY ("IDTIPOUSUARIO")
+	  REFERENCES "nomasacc"."TIPOUSUARIO" ("IDTIPOUSUARIO") ENABLE;
